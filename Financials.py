@@ -3,14 +3,11 @@ nltk.downloader.download('vader_lexicon')
 import warnings
 warnings.filterwarnings('ignore')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-import requests
 
 sia = SentimentIntensityAnalyzer()
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
-import time
 
 sentiments = []
 news_list = []

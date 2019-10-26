@@ -5,13 +5,10 @@ warnings.filterwarnings('ignore')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
 
-
 sia = SentimentIntensityAnalyzer()
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
-import time
 
 sentiments = []
 news_list = []
@@ -42,7 +39,6 @@ for passage in passage_list:
     sentiments.append(sentiment)
 
 sentiments.reverse()
-
 
 plt.plot(range(len(sentiments)), sentiments)
 plt.title('Sentiment of Articles about ' + company.upper() + ' on "The Business Times" Over Time')
