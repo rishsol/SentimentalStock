@@ -8,4 +8,4 @@ This will run the locally hosted web application where you can enter a company n
 
 Here's a sample analysis:
 
-![](Example.png)
+![](Sample1.png)
