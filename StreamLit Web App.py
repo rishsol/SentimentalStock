@@ -43,15 +43,25 @@ for passage in passage_list:
     sentiments.append(sentiment)
 
 sentiments.reverse()
-#range(len(sentiments))
-d = datetime.today()
+date_list.reverse()
 plt.plot(range(len(sentiments)), sentiments)
 plt.title('Sentiment of Articles about ' + company.upper() + ' on "The Business Times" Over Time')
 plt.ylabel('Sentiment Index')
-plt.xlabel('Day')
+plt.xlabel('Time Period')
 plt.tight_layout()
 st.pyplot()
 
-st.write('Day 0 represents the least recent article written on the company, while the final day represents the most recent story on the company. '
-         'A downward trend thus shows a decline in positive sentiment, although a minimum sentiment of above 0.5 is still generally acceptable, and may be considered a worthwhile investment.')
-#st.write('Day 0 Represents ' + str(len(sentiments)) + ' days since today (' + str(d) + '), or ' + str((d - timedelta(days=len(sentiments)))))
+def sentimentStatement():
+    tOld = date_list[0]
+    tRecent = date_list[len(date_list) - 1]
+    if(sentiments[0] > sentiments[len(sentiments) - 1]):
+        return 'Sentiment has decreased by ' + str(round(sentiments[0] - sentiments[len(sentiments) - 1], 5)) + ' from ' + tOld + ' to ' + tRecent
+    elif(sentiments[0] < sentiments[len(sentiments) - 1]):
+        return 'Sentiment has increased by ' + str(round(sentiments[len(sentiments) - 1]) - sentiments[0], 5) + ' from ' + tOld+ ' to ' + tRecent
+    else:
+        return 'Sentiment has not changed from ' + tOld + ' to ' + tRecent
+
+st.write('Time Period 0 represents ' + date_list[0] + ' while the final time period (time period ' + str(len(sentiments)) + ') represents ' + date_list[len(date_list) - 1] + '. '
+         'A downward trend shows a decline in positive sentiment, while an upwards trend represents a rise in positive sentiment.')
+st.write()
+st.write(sentimentStatement())
