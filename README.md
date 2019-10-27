@@ -5,3 +5,7 @@ To use the StreamLit web application, download StreamLit Web App.py, cd to it fr
                                      streamlit run StreamLit\ Web\ App.py
 
 This will run the locally hosted web application where you can enter a company name and obtain a visual of sentiments over time and small summary paragraph. 
+
+Here's a sample analysis:
+
+![](Example.png)
