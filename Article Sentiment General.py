@@ -15,7 +15,7 @@ news_list = []
 passage_list = []
 passage = ""
 
-company = input("Enter a publicly traded company")
+company = input("Enter a publicly traded company").strip().upper()
 for i in range(1, 3):
     page = urlopen('https://www.businesstimes.com.sg/search/' + company + '?page='+str(i)).read()
     soup = BeautifulSoup(page, features="html.parser")
@@ -41,7 +41,8 @@ for passage in passage_list:
 sentiments.reverse()
 
 plt.plot(range(len(sentiments)), sentiments)
-plt.title('Sentiment of Articles about ' + company.upper() + ' on "The Business Times" Over Time')
+plt.title('Sentiment of Articles about ' + company.upper() + ' in "The Business Times" Over Time')
 plt.ylabel('Sentiment Index')
-plt.xlabel('Day')
+plt.xlabel('Time Period')
+plt.xticks(range(len(sentiments)))
 plt.show()
