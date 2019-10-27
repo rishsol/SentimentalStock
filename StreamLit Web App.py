@@ -57,7 +57,7 @@ def sentimentStatement():
     if(sentiments[0] > sentiments[len(sentiments) - 1]):
         return 'Sentiment has decreased by ' + str(round(sentiments[0] - sentiments[len(sentiments) - 1], 5)) + ' from ' + tOld + ' to ' + tRecent
     elif(sentiments[0] < sentiments[len(sentiments) - 1]):
-        return 'Sentiment has increased by ' + str(round(sentiments[len(sentiments) - 1]) - sentiments[0], 5) + ' from ' + tOld+ ' to ' + tRecent
+        return 'Sentiment has increased by ' + str(round(sentiments[len(sentiments) - 1] - sentiments[0], 5)) + ' from ' + tOld + ' to ' + tRecent
     else:
         return 'Sentiment has not changed from ' + tOld + ' to ' + tRecent
 
