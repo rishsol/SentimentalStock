@@ -18,6 +18,7 @@ passage = ""
 company = st.text_input('Enter a publicly traded company')
 company = company.strip().upper()
 
+#below algorithm made with reference to jasonyip184 GitHub repo StockSentimentTrading
 for i in range(1, 3):
     page = urlopen('https://www.businesstimes.com.sg/search/' + company + '?page='+str(i)).read()
     soup = BeautifulSoup(page, features='html.parser')
@@ -37,6 +38,7 @@ for i in range(1, 3):
             date_list.append(date)
         except:
             continue
+#end of algo reference
 
 def sentimentStatement():
     tOld = date_list[0]
